@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="个人博客发布工具：生成可部署到静态站点的文章 JSON。"
+    />
+    <title>发布文章 - 我的个人博客</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header compact">
+      <nav class="nav" aria-label="主导航">
+        <a class="brand" href="./index.html" aria-label="返回首页">
+          <span class="brand-mark">M</span>
+          <span>我的博客</span>
+        </a>
+        <div class="nav-actions">
+          <a href="./index.html">首页</a>
+          <a href="./DEPLOY.md">部署说明</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="admin-layout">
+      <section class="editor-panel" aria-labelledby="editorTitle">
+        <div class="panel-heading">
+          <p class="eyebrow">Publisher</p>
+          <h1 id="editorTitle">发布内容</h1>
+        </div>
+
+        <form id="postForm" class="post-form">
+          <label>
+            标题
+            <input name="title" required placeholder="比如：五月的项目复盘" />
+          </label>
+
+          <div class="form-row">
+            <label>
+              发布日期
+              <input name="date" type="date" required />
+            </label>
+            <label>
+              内容类型
+              <select name="type">
+                <option value="文字">文字</option>
+                <option value="图片">图片</option>
+                <option value="视频">视频</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            摘要
+            <textarea name="excerpt" rows="3" required placeholder="一两句话概括这篇内容"></textarea>
+          </label>
+
+          <label>
+            正文
+            <textarea
+              name="body"
+              rows="10"
+              required
+              placeholder="支持换行。链接可直接写完整 URL。"
+            ></textarea>
+          </label>
+
+          <div class="form-row">
+            <label>
+              封面图片路径
+              <input name="cover" placeholder="./public/uploads/my-photo.jpg" />
+            </label>
+            <label>
+              视频地址
+              <input name="video" placeholder="./public/uploads/demo.mp4 或 YouTube/B站链接" />
+            </label>
+          </div>
+
+          <label>
+            标签
+            <input name="tags" placeholder="生活, 摄影, 技术" />
+          </label>
+
+          <div class="editor-actions">
+            <button class="button primary" type="submit">生成文章 JSON</button>
+            <button class="button secondary" id="copyButton" type="button">复制结果</button>
+          </div>
+        </form>
+      </section>
+
+      <aside class="preview-panel" aria-labelledby="outputTitle">
+        <div class="panel-heading">
+          <p class="eyebrow">Output</p>
+          <h2 id="outputTitle">生成结果</h2>
+        </div>
+        <pre id="jsonOutput" class="json-output" tabindex="0"></pre>
+        <p class="hint">
+          把生成对象加入 <code>content/posts.json</code> 的数组最前面，然后提交或上传整个站点即可发布。
+        </p>
+      </aside>
+    </main>
+
+    <script src="admin.js"></script>
+  </body>
+</html>

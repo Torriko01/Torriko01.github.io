@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="一个低成本、易维护、易部署的个人博客，支持文字、图片和视频内容。"
+    />
+    <title>我的个人博客</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="主导航">
+        <a class="brand" href="./index.html" aria-label="返回首页">
+          <span class="brand-mark">M</span>
+          <span>我的博客</span>
+        </a>
+        <div class="nav-actions">
+          <a href="#posts">文章</a>
+          <a href="./admin.html">发布</a>
+          <a href="./DEPLOY.md">部署说明</a>
+        </div>
+      </nav>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">文字 / 图片 / 视频</p>
+          <h1>把想法、现场和作品安静地放到网上。</h1>
+          <p>
+            记录项目、生活、照片和视频片段。轻量、清爽，适合长期慢慢写下去。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="./admin.html">写一篇</a>
+            <a class="button secondary" href="#posts">浏览文章</a>
+          </div>
+        </div>
+        <figure class="hero-media" aria-label="博客内容预览">
+          <img src="./public/uploads/studio-cover.svg" alt="桌面、相机和笔记本组成的创作空间" />
+        </figure>
+      </section>
+    </header>
+
+    <main>
+      <section class="toolbar" aria-label="文章筛选">
+        <div>
+          <p class="eyebrow">Archive</p>
+          <h2 id="posts">最新文章</h2>
+        </div>
+        <label class="search">
+          <span>搜索</span>
+          <input id="searchInput" type="search" placeholder="标题、标签或正文" />
+        </label>
+      </section>
+
+      <section id="postGrid" class="post-grid" aria-live="polite"></section>
+      <p id="emptyState" class="empty-state" hidden>没有找到匹配的文章。</p>
+    </main>
+
+    <template id="postTemplate">
+      <article class="post-card">
+        <a class="media-link" href="#">
+          <img class="cover" alt="" />
+        </a>
+        <div class="post-body">
+          <div class="post-meta">
+            <time></time>
+            <span class="dot"></span>
+            <span class="type"></span>
+          </div>
+          <h3><a href="#"></a></h3>
+          <p class="excerpt"></p>
+          <div class="tags"></div>
+        </div>
+      </article>
+    </template>
+
+    <dialog id="postDialog" class="post-dialog">
+      <button class="icon-button close-dialog" type="button" aria-label="关闭文章">×</button>
+      <article class="post-detail">
+        <div class="post-detail-media"></div>
+        <div class="post-detail-content">
+          <p class="post-detail-date"></p>
+          <h2></h2>
+          <div class="post-detail-tags"></div>
+          <div class="post-detail-body"></div>
+        </div>
+      </article>
+    </dialog>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> 我的个人博客</p>
+      <a href="./admin.html">发布新内容</a>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

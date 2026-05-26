@@ -1,0 +1,49 @@
+[
+	{
+	  "slug": "test",
+	  "title": "test",
+	  "date": "2026-05-26",
+	  "type": "文字",
+	  "excerpt": "这是我的第一条blog",
+	  "body": "test",
+	  "cover": "./public/uploads/studio-cover.svg",
+	  "coverAlt": "test",
+	  "tags": [
+		"技术"
+	  ]
+	},
+  {
+    "slug": "hello-static-blog",
+    "title": "第一篇：用静态站搭起自己的内容角落",
+    "date": "2026-05-26",
+    "type": "文字",
+    "excerpt": "这个博客用纯静态文件构建，适合低成本部署和长期维护。",
+    "body": "欢迎来到我的个人博客。\n\n这里可以发布文字、图片和视频。内容数据集中放在 content/posts.json，图片或视频资源放在 public/uploads 文件夹。这样的结构没有数据库、没有服务器运维成本，也方便备份和迁移。\n\n后续发布新文章时，可以打开 admin.html 生成文章 JSON，再把生成对象放到 posts.json 数组最前面。",
+    "cover": "./public/uploads/studio-cover.svg",
+    "coverAlt": "创作桌面插画",
+    "tags": ["博客", "静态站", "开始"]
+  },
+  {
+    "slug": "photo-note",
+    "title": "图片记录：桌面上的一次整理",
+    "date": "2026-05-24",
+    "type": "图片",
+    "excerpt": "用一张图记录工作台的变化，也记录当时的状态。",
+    "body": "图片类文章可以把封面图作为主要内容展示。\n\n把图片文件放进 public/uploads，然后在文章的 cover 字段写相对路径，例如 ./public/uploads/my-photo.jpg。",
+    "cover": "./public/uploads/studio-cover.svg",
+    "coverAlt": "桌面、相机和笔记本",
+    "tags": ["图片", "生活"]
+  },
+  {
+    "slug": "video-diary",
+    "title": "视频日志：一分钟项目回顾",
+    "date": "2026-05-20",
+    "type": "视频",
+    "excerpt": "视频文章支持本地 mp4/webm，也支持可嵌入的视频链接。",
+    "body": "视频类文章可以使用 video 字段。\n\n如果是本地文件，建议使用 mp4 或 webm 并放在 public/uploads。如果是外部平台，请使用平台提供的嵌入地址。",
+    "cover": "./public/uploads/studio-cover.svg",
+    "coverAlt": "视频日志封面",
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "tags": ["视频", "复盘"]
+  }
+]
